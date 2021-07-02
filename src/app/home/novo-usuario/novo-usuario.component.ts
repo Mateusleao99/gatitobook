@@ -2,6 +2,7 @@ import { NovoUsuario } from './../../interfaces/novo-usuario';
 import { NovoUsuarioService } from './../../services/registrar/novo-usuario.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { minusculoValidator } from './minusculo.validator';
 
 @Component({
   selector: 'app-novo-usuario',
@@ -20,7 +21,7 @@ export class NovoUsuarioComponent implements OnInit {
     this.novoUsuarioForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
       fullName: ['', [Validators.required, Validators.minLength(40)]],
-      userName: [''],
+      userName: ['',[minusculoValidator]],
       password: [''],
     });
   }
